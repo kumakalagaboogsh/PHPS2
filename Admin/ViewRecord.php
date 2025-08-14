@@ -1,30 +1,29 @@
 <?php
-
 session_start();
 
 include("../connections.php");
-
 include("nav.php");
-
 ?>
 
 <script type="text/javascript" src="js/jquery.js"></script>
 
-
 <script type="application/javascript">
-
-setInterval(function() {
-
-    $('#retriever').load('retriever.php');
-
-}, 1000);
-
+    setInterval(function() {
+        $('#retriever').load('retriever.php');
+    }, 1000);
 </script>
 
+<?php
 
-<div id="retriever">
-
-<?php include("retriever.php"); ?>
-
-
-</div>
+if (empty($_GET["getUpdate"])) {
+    
+    ?>
+    <div id="retriever">
+        <?php include("retriever.php"); ?>
+    </div>
+    <?php    
+} else {
+    
+    include("updating_user.php");
+}
+?>
