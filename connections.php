@@ -42,6 +42,26 @@ if (mysqli_connect_errno()) {
     text-decoration: none;
 }
 
+    .error {
+        color: red;
+    }
+
+.btn-delete{
+
+    font-family: Georgia;
+    color: #ffffff;
+    font-size: 15px;
+    background: #d93434;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.btn-delete:hover {
+    background: #fc3c3c;
+    text-decoration: none;
+}
+
+
 </style>
 
 

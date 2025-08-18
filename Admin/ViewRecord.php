@@ -5,6 +5,19 @@ include("../connections.php");
 include("nav.php");
 ?>
 
+<?php
+
+
+if(empty($_GET["notify"])){
+    
+}else{
+    echo "<font color=green><h3><center>" . $_GET["notify"] . "</center></h3></font>";
+}
+
+
+?>
+
+
 <script type="text/javascript" src="js/jquery.js"></script>
 
 <script type="application/javascript">
@@ -12,6 +25,19 @@ include("nav.php");
         $('#retriever').load('retriever.php');
     }, 1000);
 </script>
+
+<?php
+
+if(empty($_GET["getDelete"])){
+
+}else{
+
+    include("confirm_delete.php");
+}
+
+?>
+
+
 
 <?php
 
@@ -25,13 +51,6 @@ if (empty($_GET["getUpdate"])) {
 } else {
     
     include("updating_user.php");
-}
-
-
-if(empty($_GET["notify"])){
-    //do nothing here
-}else{
-    echo "<font color=green><h3><center>" . $_GET["notify"] . "</center></h3></font>";
 }
 
 

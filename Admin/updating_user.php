@@ -1,10 +1,3 @@
-
-<style>
-    .error {
-        color: red;
-    }
-</style>
-
 <?php
 
 $id_user = $_GET["id_user"];
