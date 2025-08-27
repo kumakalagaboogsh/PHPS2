@@ -1,3 +1,9 @@
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
 <?php
 include("nav.php");
 
@@ -50,30 +56,35 @@ if(isset($_POST["btnLogin"])){
 
             if($account_type == "1"){
 
-
+                if($db_password == $password){
+                    echo "<script>window.location.href='Admin';</script>";
+                }else{
+                    $passwordErr = "Hi Admin! Your Password is incorrect!";
+                }
+                
             }else{
 
                 if($db_log_time <= $new_time){
 
                     if($db_password == $password){
-
-
+                        echo "<script>window.location.href='users';</script>";
                     }else{
 
-                        $attempt = $db_attempt + 1;
+                        $attempt = intval($db_attempt) + 1;
 
                         if($attempt >= 3){
 
                             $attempt = 3;
 
-                            
+                            mysqli_query($connections, "UPDATE tbl_user SET attempt='$attempt', log_time='$end_time' WHERE email='$email'");
+                            $notify = "You already reach the three (3) times attempt to login. Please Login after 15 minutes: <b>$end_time</b>";
 
 
                         }else{
 
                           mysqli_query($connections, "UPDATE tbl_user SET attempt='$attempt' WHERE email='$email'");
                           
-                          $passwordErr = "Password is incorrect!";
+                          $passwordErr = "Password is incorrect! ";
                           $notify = "Login Attempt: <b>$attempt</b>";
 
                         }
@@ -117,7 +128,7 @@ if(isset($_POST["btnLogin"])){
 
     <br>
 
-    <input type="password" name="password" placeholder="Password" value="<?php echo $password; ?>" ><br>
+    <input type="password" name="password" placeholder="Password" value="" ><br>
     <span class="error"><?php echo $passwordErr; ?></span>
 
     <br>
