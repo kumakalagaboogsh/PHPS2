@@ -1,3 +1,7 @@
+<?php
+include("nav.php");
+?>
+
 <?php 
 
 $first_name = $middle_name = $last_name = $gender = $preffix = $seven_digit = $email = "";
@@ -99,7 +103,7 @@ if($count_first_name_string < 2){
 
                 include("connections.php");
 
-                mysqli_query($connections, "INSERT INTO tbl_user(first_name, middle_name, last_name, gender, preffix, seven_digit, email, password) VALUES ('$first_name', '$middle_name', '$last_name', '$gender', '$preffix', '$seven_digit', '$email', '$password')");
+                mysqli_query($connections, "INSERT INTO tbl_user(first_name, middle_name, last_name, gender, preffix, seven_digit, email, password, account_type) VALUES ('$first_name', '$middle_name', '$last_name', '$gender', '$preffix', '$seven_digit', '$email', '$password', '2')");
 
                 echo "<script>window.location.href='success.php';</script>";
 

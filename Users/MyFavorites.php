@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if(isset($_SESSION["email"])){
     $email = $_SESSION["email"];
@@ -8,7 +7,5 @@ if(isset($_SESSION["email"])){
 }
 
 include("../connections.php");
-
 include("nav.php");
-
 ?>

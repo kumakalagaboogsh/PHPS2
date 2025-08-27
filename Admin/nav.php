@@ -17,6 +17,11 @@
 &nbsp;
 
 <a href="Setting" class="btn-primary" >Setting</a>
+&nbsp;
+&nbsp;
+
+<a href="../logout" class="btn-delete" >Logout</a>
+
 
 
 
