@@ -8,7 +8,7 @@ $email = $_SESSION["email"];
 
 }else{
 
-echo"<script>window.location.href='../';</script>"
+echo"<script>window.location.href='../';</script>";
 
 }
 

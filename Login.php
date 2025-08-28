@@ -96,7 +96,8 @@ if(isset($_POST["btnLogin"])){
                     if($db_password == $password){
 
                         $_SESSION["email"] = $email;
-                    
+
+                        mysqli_query($connections, "UPDATE tbl_user SET attempt='', log_time='' WHERE email='$email'");
 
                         echo "<script>window.location.href='Users';</script>";
 
